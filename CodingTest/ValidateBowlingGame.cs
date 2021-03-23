@@ -1,26 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CodingTest
 {
-    public class ValidateBowlingGame /*: IValidateBowlingGame*/
+    public class ValidateBowlingGame
     {
         ValidateBowlingErrorMsg ErrMsgObj = new ValidateBowlingErrorMsg();
-
+        LoggingBlock loggerBlock = new LoggingBlock();
         public ValidateBowlingErrorMsg IsPinAllowed(int pins)
         {
-            if (pins > 10)
+            try
             {
-                ErrMsgObj.ErrorMgs = "Invalid Pin, Please try again";
-                ErrMsgObj.isAllowed = false;
+                if (pins > 10)
+                {
+                    ErrMsgObj.ErrorMgs = "Invalid Pin, Please try again";
+                    ErrMsgObj.isAllowed = false;
+                    return ErrMsgObj;
+                }
+                ErrMsgObj.isAllowed = true;
                 return ErrMsgObj;
             }
-            ErrMsgObj.isAllowed = true;
-            return ErrMsgObj;
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                loggerBlock.LogWriter.Write(ex.Message, "General", 5, 2000, TraceEventType.Information);
+                throw ex;
+            }
         }
+
         public static bool IsStrike(int pins)
         {
             if (pins == 10)
@@ -54,3 +65,4 @@ namespace CodingTest
         public bool isAllowed { get; set; }
 
     }
+

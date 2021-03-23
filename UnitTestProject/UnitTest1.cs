@@ -8,28 +8,74 @@ namespace UnitTestProject
     public class UnitTest1
     {
         private Bowling _bowling;
+        private ValidateBowlingGame _ValidateBowlingGame;
+        
 
         [TestInitialize]
         public void Init()
         {
             _bowling = new Bowling();
+            _ValidateBowlingGame = new ValidateBowlingGame();
         }
 
         [TestCleanup]
         public void CleanUP()
         {
             _bowling = null;
+            _ValidateBowlingGame = null;
         }
 
         [TestMethod]
         public void TestGame()
         {
         }
+        
+        [TestMethod]
+        public void TestValidateIsValidPin()
+        {
+            Assert.AreEqual(false, _ValidateBowlingGame.IsPinAllowed(11).isAllowed);
+        }
+
+        [TestMethod]
+        public void TestValidPin()
+        {
+            Assert.AreEqual(true, _ValidateBowlingGame.IsPinAllowed(10).isAllowed);
+        }
+
+        [TestMethod]
+        public void TestValidateIsStrike()
+        {
+         Assert.AreEqual(true, ValidateBowlingGame.IsStrike(10));
+        }
+        [TestMethod]
+        public void TestValidateIsNotStrike()
+        {
+            Assert.AreEqual(false, ValidateBowlingGame.IsStrike(9));
+        }
+
+        [TestMethod]
+        public void TestValidateIsNeitherStrikeNorSpare()
+        {
+          Assert.AreEqual(true, ValidateBowlingGame.IsNoBonusFrame(6,3));
+        }
+
+        [TestMethod]
+        public void TestValidateIsSpare()
+        {
+            Assert.AreEqual(false, ValidateBowlingGame.IsNoBonusFrame(6, 4));
+        }
 
         [TestMethod]
         public void TestRoll()
         {
             _bowling.Roll(0);
+        }
+        [TestMethod]
+        public void TestMoreThan10FrameScores()
+        {
+            MultipleRolls(25, 1);
+            //score will only calculate for First 10 frames
+            Assert.AreEqual(20, _bowling.Score());
         }
 
         [TestMethod]
@@ -52,8 +98,8 @@ namespace UnitTestProject
         public void TestStrike()
         {
             RollStrike();
-            _bowling.Roll(3); // 20
-            _bowling.Roll(4); //24
+            _bowling.Roll(3);
+            _bowling.Roll(4);
             MultipleRolls(16, 0);
             Assert.AreEqual(24, _bowling.Score());
         }
@@ -118,9 +164,6 @@ namespace UnitTestProject
             _bowling.Roll(9);
             _bowling.Roll(1);
             _bowling.Roll(9);//10Frame
-            _bowling.Roll(1);//10Frame
-
-
             Assert.AreEqual(190, _bowling.Score());
         }
 

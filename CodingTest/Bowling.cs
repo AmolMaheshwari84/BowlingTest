@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Practices.EnterpriseLibrary.Logging;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace CodingTest
@@ -15,30 +17,41 @@ namespace CodingTest
         /// No Of Frames allowed in the game
         /// </summary>
         private const int intFrameAllowed = 10;
-        ValidateBowlingGame _iValidateBowlingGame = new ValidateBowlingGame();
+        ValidateBowlingGame validateBowlingGame = new ValidateBowlingGame();
+        LoggingBlock loggerBlock = new LoggingBlock();
 
-        //private readonly IValidateBowlingGame _iValidateBowlingGame;
-
-        //public Bowling (IValidateBowlingGame iValidateBowlingGame)
-        //{
-        //    this._iValidateBowlingGame = iValidateBowlingGame;
-        //}
-        
         List<int> resultsRoll = new List<int>();
-
 
         public void Roll(int pins)
         {
-            if (_iValidateBowlingGame.IsPinAllowed(pins).isAllowed)
+            try
             {
-               resultsRoll.Add(pins);
+                if (validateBowlingGame.IsPinAllowed(pins).isAllowed)
+                {
+                    resultsRoll.Add(pins);
+                }
             }
-            
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                loggerBlock.LogWriter.Write(ex.Message, "General", 5, 2000, TraceEventType.Information);
+                throw ex;
+            }
         }
 
         public int Score()
         {
-            return resultsRoll.CalculateScores().Take(10).Sum();
+            try
+            {
+                //make sure it will not return more than 10 Frames
+             return resultsRoll.CalculateScores().Take(intFrameAllowed).Sum();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                loggerBlock.LogWriter.Write(ex.Message, "General", 5, 2000, TraceEventType.Information);
+                throw ex;
+            }
         }
         
     }
@@ -58,10 +71,9 @@ namespace CodingTest
                     continue;
                 }
 
-                // Avoiding Index not found Error
+                // Avoiding Index not found Error, however during calculation we are only taking 10 frames.
                 if (i + 2 >= framePins.Count)
                 {
-                    yield return framePins[i-1] + framePins[i] + framePins[i + 1];
                     break;
                 }
 
