@@ -59,7 +59,6 @@
     <None Include="App.config" />
     <None Include="bin\Debug\CodingTest.exe.config" />
     <None Include="bin\Debug\RollingFlatFile.log" />
-    <None Include="bin\Debug\UnitTestProject.dll.config" />
     <None Include="obj\Debug\build.force" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\UnitTestProject.csproj.CopyComplete" />
@@ -88,8 +87,6 @@
     <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
     <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
     <Content Include="bin\Debug\Sample.txt" />
-    <Content Include="bin\Debug\UnitTestProject.dll" />
-    <Content Include="bin\Debug\UnitTestProject.pdb" />
     <Content Include="obj\Debug\UnitTestProject.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\UnitTestProject.dll" />
     <Content Include="obj\Debug\UnitTestProject.pdb" />
