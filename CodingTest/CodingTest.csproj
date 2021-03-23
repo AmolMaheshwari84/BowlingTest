@@ -51,6 +51,9 @@
   <ItemGroup>
     <Compile Include="Bowling.cs" />
     <Compile Include="LoggingBlock.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidateBowlingGame.cs" />
@@ -59,7 +62,29 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="bin\Debug\CodingTest.exe.config" />
+    <None Include="bin\Debug\RollingFlatFile.log" />
+    <None Include="obj\Debug\CodingTest.csproj.CopyComplete" />
+    <None Include="obj\Debug\CodingTest.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\CodingTest.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\CodingTest.exe" />
+    <Content Include="bin\Debug\CodingTest.pdb" />
+    <Content Include="bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <Content Include="bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml" />
+    <Content Include="bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll" />
+    <Content Include="bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml" />
+    <Content Include="bin\Debug\Sample.txt" />
+    <Content Include="obj\Debug\CodingTest.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\CodingTest.exe" />
+    <Content Include="obj\Debug\CodingTest.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
