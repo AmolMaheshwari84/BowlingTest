@@ -71,6 +71,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\CodingTest.exe" />
     <Content Include="bin\Debug\CodingTest.pdb" />
     <Content Include="bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
     <Content Include="bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml" />
