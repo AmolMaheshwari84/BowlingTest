@@ -34,7 +34,7 @@ namespace CodingTest
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                loggerBlock.LogWriter.Write(ex.Message, "General", 5, 2000, TraceEventType.Information);
+                loggerBlock.LogWriter.Write(ex.Message, "Error", 5, 2000, TraceEventType.Error);
                 throw ex;
             }
         }
@@ -49,7 +49,7 @@ namespace CodingTest
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                loggerBlock.LogWriter.Write(ex.Message, "General", 5, 2000, TraceEventType.Information);
+                loggerBlock.LogWriter.Write(ex.Message, "Error", 5, 2000, TraceEventType.Error);
                 throw ex;
             }
         }
